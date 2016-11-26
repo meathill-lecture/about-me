@@ -1,2 +1,7 @@
-# about-me
-Use a self-introduction site as example, show the workflow of modern front-end.
+[En](./README.en.md)
+
+# “个人网站”开发实战
+
+以开发一个自我介绍的网站为例，介绍现代前端开发的流程、技术栈。
+
+* [大纲](./outline.md)
