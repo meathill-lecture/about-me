@@ -1,0 +1,32 @@
+{
+  "name": "about-me",
+  "version": "1.0.0",
+  "description": "Use a self-introduction site as example, show the workflow of modern front-end.",
+  "main": "index.html",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.5"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.0.0-alpha.5",
+    "colors.css": "^2.2.0",
+    "font-awesome": "^4.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meathill-lecture/about-me.git"
+  },
+  "keywords": [
+    "tutorial",
+    "slide",
+    "front-end"
+  ],
+  "author": "Meathill <meathill@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meathill-lecture/about-me/issues"
+  },
+  "homepage": "https://github.com/meathill-lecture/about-me#readme"
+}
