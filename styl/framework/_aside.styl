@@ -1,8 +1,44 @@
 #aside
   background-color navy
   color: silver
+  display flex
+  flex-direction column
+
+  .profile
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    flex 1
+
+    .face
+      margin-bottom gap
+
+    .social-links a
+      color silver
+      display inline-block
+      width gap + gap-s
+      height gap + gap-s
+      border 2px solid currentColor
+      border-radius 50%
+      font-size 1.25em
+      line-height gap + gap-s - 4px
+      text-align center
+      -webkit-transition: all 0.2s
+      -moz-transition: all 0.2s
+      -ms-transition: all 0.2s
+      -o-transition: all 0.2s
+      transition: all 0.2s
+
+      + a
+        margin-left gap-s
+
+      &:hover
+        color white
+        transform scale(1.25)
 
   footer
-    position absolute
-    bottom 0
+    height 5em
     font-size 0.8em
+    line-height 1.25em
+    text-align center

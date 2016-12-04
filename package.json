@@ -4,7 +4,8 @@
   "description": "Use a self-introduction site as example, show the workflow of modern front-end.",
   "main": "index.html",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.5"
+    "bootstrap": "^4.0.0-alpha.5",
+    "marked": "^0.3.6"
   },
   "devDependencies": {
     "bootstrap": "^4.0.0-alpha.5",
