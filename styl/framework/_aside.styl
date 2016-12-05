@@ -1,5 +1,6 @@
 #aside
   background-color navy
+  bottom 0
   color: silver
   display flex
   flex-direction column
@@ -14,15 +15,24 @@
     .face
       margin-bottom gap
 
+    h2
+      margin-bottom 1.5rem
+
+      a
+        color: silver
+
+        &:hover
+          color: white
+
     .social-links a
       color silver
       display inline-block
-      width gap + gap-s
-      height gap + gap-s
+      width gap-l
+      height gap-l
       border 2px solid currentColor
       border-radius 50%
       font-size 1.25em
-      line-height gap + gap-s - 4px
+      line-height gap-l - 4px
       text-align center
       -webkit-transition: all 0.2s
       -moz-transition: all 0.2s
@@ -42,3 +52,11 @@
     font-size 0.8em
     line-height 1.25em
     text-align center
+
+  @media (max-width xs-screen-max)
+    &
+      width auto
+
+  @media (min-width sm-screen-min)
+    &
+      width 400px

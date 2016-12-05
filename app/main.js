@@ -3,5 +3,9 @@
  */
 $.get('README.md')
   .then(function (response) {
-    $('#content').html(marked(response));
+    $('#content article').html(marked(response));
   });
+
+$('.email').attr('href', function (i, value) {
+  return value.replace('[at]', '@');
+});
