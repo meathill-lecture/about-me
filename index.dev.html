@@ -23,12 +23,7 @@
   <link rel="stylesheet" href="css/screen.css">
 </head>
 <body>
-<div class="container-fluid" id="content">
-  <article class="col-xs-12 col-sm-10 offset-sm-1">
-    <!-- readme -->
-  </article>
-</div>
-<aside id="aside" class="pos-f-t">
+<aside id="aside">
   <div class="profile">
     <div class="face"><a href="//meathill.com/"><img src="http://gravatar.duoshuo.com/avatar/40c8a761e2e97573a8517135bf0f1e8a?s=160" class="rounded-circle img-thumbnail"></a></div>
     <h2><a href="//meathill.com/">Meathill</a></h2>
@@ -40,14 +35,22 @@
       <a href="mailto:meathill[at]gmail.com" title="邮件联系" class="email"><i class="fa fa-envelope"></i></a>
     </p>
   </div>
-  <footer>
-    <p>Meathill 设计并制作。Coders shape the future!</p>
-    <p>代码采用 <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> 协议，
-      教程采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC 4.0</a> 协议。</p>
-  </footer>
 </aside>
+<div class="container-fluid" id="content">
+  <div class="row">
+    <article class="col-xs-12 col-sm-10 offset-sm-1">
+      <!-- readme -->
+    </article>
+  </div>
+</div>
+<footer id="footer">
+  <p><a href="//meathill.com/">Meathill</a> 设计并制作。Coders shape the future!</p>
+  <p>代码采用 <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> 协议，
+    教程采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC 4.0</a> 协议。</p>
+</footer>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/marked/marked.min.js"></script>
+<script src="app/define.js"></script>
 <script src="app/main.js"></script>
 </body>
 </html>

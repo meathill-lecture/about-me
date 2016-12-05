@@ -22,7 +22,7 @@
         color: silver
 
         &:hover
-          color: white
+          color: yellow
 
     .social-links a
       color silver
@@ -47,16 +47,18 @@
         color white
         transform scale(1.25)
 
-  footer
-    height 5em
-    font-size 0.8em
-    line-height 1.25em
-    text-align center
-
   @media (max-width xs-screen-max)
-    &
-      width auto
+    width auto
+    padding-top gap-l
+
+    .lead
+      display none
 
   @media (min-width sm-screen-min)
-    &
-      width 400px
+    position: fixed
+    top 0
+    left 0
+    bottom 0
+    z-index 1030
+    width aside-width
+    padding-bottom 3rem
