@@ -47,6 +47,8 @@
 3. 拓展知识视野，找到进一步学习的方向
 4. 掌握教程中的知识点，能运用到实际工作中
 
+<!-- slides -->
+
 ## 大纲
 
 [链接](./outline.md)
@@ -55,6 +57,6 @@
 
 [Meathill](http://meathill.com/)
 
-## Language
+## Other language
 
 [En](./README.en.md)
