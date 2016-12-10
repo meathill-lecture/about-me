@@ -1,7 +1,7 @@
 大纲
 ========
 
-## 1. 项目启动
+## 1. 前端概论
 
 1. 介绍前端开发的特点
     1. 重视视觉
@@ -16,16 +16,7 @@
     1. VS Code
     2. Node.js
     3. npm
-4. HTML5 新特性
-    1. web-font
-    2. 响应式
-5. CSS3 新特性
-    1. 弹性布局
-    2. 圆角矩形
-    3. `position:fixed`
-6. JavaScript 新特性
-    1. localStorage
-7. Hello World
+4. Hello World
 
 ### 备课
 
