@@ -25,7 +25,7 @@
 <body>
 <aside id="aside">
   <div class="profile">
-    <div class="face"><a href="//meathill.com/"><img src="http://gravatar.duoshuo.com/avatar/40c8a761e2e97573a8517135bf0f1e8a?s=160" class="rounded-circle img-thumbnail"></a></div>
+    <div class="face"><a href="//meathill.com/"><img src="./img/avatar.jpg" class="rounded-circle img-thumbnail" width="160" height="160"></a></div>
     <h2><a href="//meathill.com/">Meathill</a></h2>
     <p class="lead">希望此教程可以给大家带来帮助</p>
     <p class="social-links">
@@ -38,8 +38,25 @@
 </aside>
 <div class="container-fluid" id="content">
   <div class="row">
-    <article class="col-xs-12 col-sm-10 offset-sm-1">
+    <article class="col-xs-12 col-sm-10 offset-sm-1" id="readme">
       <!-- readme -->
+    </article>
+    <article class="col-xs-12 col-sm-10 offset-sm-1">
+      <ul id="lessons" class="row">
+        <script type="text/x-handlebars-template">
+          {{#each lessons}}
+          <li>
+            <figure class="figure">
+              <a href="{{url}}"><img src="{{thumbnail}}" class="figure-img img-fluid img-thumbnail" alt="{{title}}"></a>
+              <figcaption class="figure-caption text-sm-center"><a href="{{url}}">{{title}}</a></figcaption>
+            </figure>
+          </li>
+          {{/each}}
+        </script>
+      </ul>
+    </article>
+    <article class="col-xs-12 col-sm-10 offset-sm-1" id="others">
+      <!-- others -->
     </article>
   </div>
 </div>
@@ -50,6 +67,7 @@
 </footer>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/marked/marked.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="app/define.js"></script>
 <script src="app/main.js"></script>
 </body>

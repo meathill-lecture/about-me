@@ -16,6 +16,7 @@ let fs = require('fs')
   , uglify = require('gulp-uglify')
   , del = require('del')
   , marked = require('marked')
+  , cheerio = require('cheerio')
   , cdn = require('./cdn.json');
 
 gulp.task('clear', () => {
@@ -39,6 +40,38 @@ gulp.task('js', () => {
       }
     }))
     .pipe(gulp.dest(DEST + 'app/'));
+});
+
+gulp.task('slide2json', () => {
+  let path = './slides/';
+  let files = fs.readdirSync(path, 'utf8');
+  files = files.map((name, index) => {
+    let lessonPath = path + name;
+    let stat = fs.statSync(lessonPath);
+    if (stat.isDirectory()) {
+      let html = fs.readFileSync(lessonPath + '/index.html', 'utf8');
+      let $ = cheerio.load(html);
+      let title = $('title').text();
+      let thumbnail = $('[name=thumbnail]').attr('content');
+      return {
+        url: lessonPath + '/',
+        title: title,
+        thumbnail: thumbnail
+      }
+    } else {
+      return false;
+    }
+  }).filter((value) => {
+    return !!value;
+  });
+  return new Promise((resolve, reject) => {
+    fs.writeFile(path + 'all.json', JSON.stringify(files), 'utf8', (err) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve();
+    });
+  });
 });
 
 gulp.task('html', () => {
@@ -75,6 +108,7 @@ gulp.task('html', () => {
 gulp.task('default', (taskDone) => {
   sequence(
     'clear',
+    'slide2json',
     ['stylus', 'js', 'html'],
     taskDone
   );

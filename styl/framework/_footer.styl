@@ -3,6 +3,11 @@
   font-size 0.8rem
   line-height 1em
   text-align center
+  position: fixed
+  left 0
+  bottom 0
+  z-index 1050
+  height 4rem
 
   p
     margin-bottom 0.5rem
@@ -15,12 +20,18 @@
 
   @media (max-width xs-screen-max)
     background-color navy
+    height auto
     padding 1rem 0 0.25rem
+    position static
 
-  @media (min-width sm-screen-min)
-    height 4rem
-    position: fixed
-    left 0
-    bottom 0
+  @media (min-width sm-screen-min) and (max-width sm-screen-max)
+    width aside-width * .7
+
+  @media (min-width md-screen-min) and (max-width md-screen-max)
+    width aside-width * .8
+
+  @media (min-width lg-screen-min) and (max-width lg-screen-max)
+    width aside-width * .9
+
+  @media (min-width xl-screen-min)
     width aside-width
-    z-index 1050

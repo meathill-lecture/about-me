@@ -3,8 +3,20 @@
  */
 if (DEBUG) {
   $.get('README.md')
-    .then(function (response) {
-      $('#content article').html(marked(response));
+    .then((response) => {
+      let parts = response.split('<!-- content -->');
+      $('#readme').html(marked(parts[0]));
+      $('#others').html(marked(parts[1]));
+    });
+
+  $.get({
+    url: 'slides/all.json',
+    dataType: 'json'
+  })
+    .then((response) => {
+      let template = Handlebars.compile($('script[type]').html());
+      let html = template({lessons: response});
+      $('#lessons').html(html);
     });
 }
 
