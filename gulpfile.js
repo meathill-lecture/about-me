@@ -5,7 +5,7 @@
 'use strict';
 
 const DEST = 'docs/';
-const SRC_EXP = /(href|src)="(node_modules\/.*)\.(js|css)"/g;
+const SRC_REG = /(?:..\/..\/)?node_modules\/([\w.-]+)\/(.*\.(?:js|css))/g;
 
 let fs = require('fs')
   , gulp = require('gulp')
@@ -14,9 +14,14 @@ let fs = require('fs')
   , minifyCSS = require('gulp-minify-css')
   , minifyHTML = require('html-minifier').minify
   , uglify = require('gulp-uglify')
+  , imagemin = require('gulp-imagemin')
+  , replace = require('gulp-replace')
+  , copy = require('gulp-copy')
   , del = require('del')
   , marked = require('marked')
   , cheerio = require('cheerio')
+  , Handlebars = require('handlebars')
+  , mkdirp = require('mkdirp')
   , cdn = require('./cdn.json');
 
 gulp.task('clear', () => {
@@ -24,14 +29,15 @@ gulp.task('clear', () => {
 });
 
 gulp.task('stylus', () => {
-  return gulp.src('./styl/screen.styl')
+  return gulp.src('./styl/*.styl')
     .pipe(stylus())
     .pipe(minifyCSS())
     .pipe(gulp.dest(DEST + 'css/'));
 });
 
 gulp.task('js', () => {
-  return gulp.src('./app/main.js')
+  return gulp.src(['./app/*.js', '!./app/define.js'])
+    .pipe(replace(SRC_REG, toCDN))
     .pipe(uglify({
       compress: {
         global_defs: {
@@ -43,20 +49,29 @@ gulp.task('js', () => {
 });
 
 gulp.task('slide2json', () => {
-  let path = './slides/';
+  let path = 'slides/';
   let files = fs.readdirSync(path, 'utf8');
   files = files.map((name, index) => {
     let lessonPath = path + name;
     let stat = fs.statSync(lessonPath);
     if (stat.isDirectory()) {
       let html = fs.readFileSync(lessonPath + '/index.html', 'utf8');
+      html = html.replace(SRC_REG, toCDN);
       let $ = cheerio.load(html);
       let title = $('title').text();
       let thumbnail = $('[name=thumbnail]').attr('content');
+      let description = $('[name=description]').attr('content');
+      gulp.src(lessonPath + '/*.md')
+        .pipe(gulp.dest(DEST + lessonPath));
+      if (!fs.existsSync(DEST + lessonPath)) {
+        mkdirp.sync(DEST + lessonPath);
+      }
+      fs.writeFileSync(DEST + lessonPath + '/index.html', html, 'utf8');
       return {
         url: lessonPath + '/',
         title: title,
-        thumbnail: thumbnail
+        thumbnail: thumbnail,
+        description: description
       }
     } else {
       return false;
@@ -74,23 +89,38 @@ gulp.task('slide2json', () => {
   });
 });
 
+gulp.task('imagemin', () => {
+  let avatar = 'img/*';
+  return gulp.src(avatar)
+    .pipe(imagemin({
+      progressive: true
+    }))
+    .pipe(gulp.dest(DEST + 'img/'));
+});
+
 gulp.task('html', () => {
   let html = fs.readFileSync('./index.dev.html', 'utf8');
-  // 去掉 define.js
-  html = html.replace('<script src="app/define.js"></script>', '');
   // 将库换成 CDN 地址
-  html = html.replace(SRC_EXP, (match, attr, src, ext) => {
-    let filename = src.substr(src.lastIndexOf('/') + 1);
-    let key = filename.substr(0, filename.indexOf('.'));
-    return attr + '="' + cdn[key].replace('{{filename}}', filename + '.' + ext)
-        .replace('{{ext}}', ext) + '"';
+  html = html.replace(SRC_REG, toCDN);
+  let $ = cheerio.load(html, {
+    decodeEntities: false
   });
+  // 去掉不需要的js
+  $('[data-exclude]').remove();
   // 替换 readme 中的内容
   let readme = fs.readFileSync('./README.md', 'utf8');
-  readme = marked(readme);
-  html = html.replace('<!-- readme -->', readme);
+  let parts = readme.split('<!-- content -->');
+  $('#readme').html(marked(parts[0]));
+  $('#others').html(marked(parts[1]));
+  // 替换 课程列表
+  let lessonsContainer = $('script[type]');
+  let template = Handlebars.compile(lessonsContainer.html());
+  let lessons = template({
+    lessons: JSON.parse(fs.readFileSync('./slides/all.json', 'utf8'))
+  });
+  lessonsContainer.replaceWith(lessons);
   // 压缩 html
-  html = minifyHTML(html, {
+  html = minifyHTML($.html(), {
     collapseWhitespace: true,
     removeComments: true,
     removeEmptyAttributes: true
@@ -109,7 +139,13 @@ gulp.task('default', (taskDone) => {
   sequence(
     'clear',
     'slide2json',
-    ['stylus', 'js', 'html'],
+    ['stylus', 'js', 'html', 'imagemin'],
     taskDone
   );
 });
+
+function toCDN(match, key, js) {
+  js = js.replace(/dist\//, '');
+  js = /.min.js/.test(js) ? js : js.replace(/.js$/, '.min.js');
+  return cdn[key] + js;
+}

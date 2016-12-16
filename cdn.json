@@ -1,7 +1,8 @@
 {
-  "bootstrap": "//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/{{ext}}/{{filename}}",
-  "bootstrap-flex": "//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/{{ext}}/{{filename}}",
-  "jquery": "//cdn.staticfile.org/jquery/3.1.1/{{filename}}",
-  "font-awesome": "//cdn.staticfile.org/font-awesome/4.7.0/css/{{filename}}",
-  "marked": "//cdn.staticfile.org/marked/0.3.6/{{filename}}"
+  "bootstrap": "//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/",
+  "bootstrap-flex": "//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/",
+  "jquery": "//cdn.staticfile.org/jquery/3.1.1/",
+  "font-awesome": "//cdn.staticfile.org/font-awesome/4.7.0/",
+  "marked": "//cdn.staticfile.org/marked/0.3.6/",
+  "reveal.js": "//cdn.staticfile.org/reveal.js/3.3.0/"
 }

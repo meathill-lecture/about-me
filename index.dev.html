@@ -42,13 +42,14 @@
       <!-- readme -->
     </article>
     <article class="col-xs-12 col-sm-10 offset-sm-1">
+      <h2>课程列表</h2>
       <ul id="lessons" class="row">
         <script type="text/x-handlebars-template">
           {{#each lessons}}
-          <li>
+          <li class="col-sm-6 col-md-4">
             <figure class="figure">
-              <a href="{{url}}"><img src="{{thumbnail}}" class="figure-img img-fluid img-thumbnail" alt="{{title}}"></a>
-              <figcaption class="figure-caption text-sm-center"><a href="{{url}}">{{title}}</a></figcaption>
+              <a href="{{url}}" title="{{description}}"><img src="{{thumbnail}}" class="figure-img img-fluid img-thumbnail" alt="{{title}}"></a>
+              <figcaption class="figure-caption text-sm-center"><a href="{{url}}" title="{{description}}">{{title}}</a></figcaption>
             </figure>
           </li>
           {{/each}}
@@ -66,9 +67,9 @@
     教程采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC 4.0</a> 协议。</p>
 </footer>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/marked/marked.min.js"></script>
-<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="app/define.js"></script>
+<script src="node_modules/marked/marked.min.js" data-exclude="true"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js" data-exclude="true"></script>
+<script src="app/define.js" data-exclude="true"></script>
 <script src="app/main.js"></script>
 </body>
 </html>

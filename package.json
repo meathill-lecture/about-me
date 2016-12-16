@@ -4,8 +4,7 @@
   "description": "Use a self-introduction site as example, show the workflow of modern front-end.",
   "main": "index.html",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.5",
-    "marked": "^0.3.6"
+    "bootstrap": "^4.0.0-alpha.5"
   },
   "devDependencies": {
     "bootstrap": "^4.0.0-alpha.5",
@@ -14,11 +13,14 @@
     "del": "^2.2.2",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
+    "gulp-imagemin": "latest",
     "gulp-minify-css": "^1.2.4",
+    "gulp-replace": "^0.5.4",
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.0",
     "handlebars": "^4.0.6",
     "html-minifier": "^3.2.3",
+    "mkdirp": "^0.5.1",
     "reveal.js": "^3.3.0",
     "run-sequence": "^1.2.2"
   },
@@ -39,5 +41,5 @@
   "bugs": {
     "url": "https://github.com/meathill-lecture/about-me/issues"
   },
-  "homepage": "https://github.com/meathill-lecture/about-me#readme"
+  "homepage": "https://meathill-lecture.github.com/about-me/"
 }
