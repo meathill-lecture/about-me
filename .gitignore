@@ -1,10 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 # IDE
-.idea
+.idea/
 
 # repo
-node_modules
+node_modules/
 
 # build
-css
+css/
 slides/all.json
