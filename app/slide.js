@@ -43,7 +43,7 @@ Reveal.initialize({
 // QQ 统计
 ( function(id) {
   var script = document.createElement('script');
-  script.src = 'http://tajs.qq.com/stats?sId=' + id;
+  script.src = '//tajs.qq.com/stats?sId=' + id;
   script.charset = 'UTF-8';
   script.async = 1;
   var scripts = document.getElementsByTagName('script');
