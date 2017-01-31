@@ -1,3 +1,10 @@
+<!--
+title: 第三课：Stylus
+description: “个人网站”开发实战》第三课：Stylus。本堂课介绍 CSS 预处理工具：Stylus。CSS 在前端开发中占据非常重要的位置，但是其语言特性又让我们很难进行高效开发。要解决这一难题，需要使用预处理工具。本系列教程选择 Stylus。
+keywords: Stylus
+thumbnail: http://blog.meathill.com/wp-content/uploads/2016/12/MG_5350-1200x800.jpg
+-->
+
 ### “个人网站”开发实战 第二课
 # Stylus
 

@@ -1,3 +1,10 @@
+<!--
+title: 第二课：Bootstrap
+description: 《“个人网站”开发实战》第二课：Bootstrap。本堂课将介绍目前使用最广的前端框架：Bootstrap。重点讲解如何使用它提高开发效率、如何使用 Bootstrap Grid 进行布局、如何进行适当的二次开发满足需求。
+keywords: Bootstrap
+thumbnail: http://blog.meathill.com/wp-content/uploads/2016/12/MG_5350-1200x800.jpg
+-->
+
 ### “个人网站”开发实战 第二课
 # Bootstrap
 

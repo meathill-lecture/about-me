@@ -16,13 +16,12 @@ let fs = require('fs')
   , uglify = require('gulp-uglify')
   , imagemin = require('gulp-imagemin')
   , replace = require('gulp-replace')
-  , copy = require('gulp-copy')
   , del = require('del')
   , marked = require('marked')
   , cheerio = require('cheerio')
   , Handlebars = require('handlebars')
-  , mkdirp = require('mkdirp')
-  , cdn = require('./cdn.json');
+  , mkdirp = require('mkdirp');
+const {copy, readMeta, toCDN} = require('./gulp/functions');
 
 gulp.task('clear', () => {
   return del(DEST + '*');
@@ -51,42 +50,68 @@ gulp.task('js', () => {
 gulp.task('slide2json', () => {
   let path = 'slides/';
   let files = fs.readdirSync(path, 'utf8');
-  files = files.map((name, index) => {
-    let lessonPath = path + name;
-    let stat = fs.statSync(lessonPath);
-    if (stat.isDirectory()) {
-      let html = fs.readFileSync(lessonPath + '/index.html', 'utf8');
-      html = html.replace(SRC_REG, toCDN);
-      let $ = cheerio.load(html);
-      let title = $('title').text();
-      let thumbnail = $('[name=thumbnail]').attr('content');
-      let description = $('[name=description]').attr('content');
-      gulp.src(lessonPath + '/*.md')
-        .pipe(gulp.dest(DEST + lessonPath));
-      if (!fs.existsSync(DEST + lessonPath)) {
-        mkdirp.sync(DEST + lessonPath);
-      }
-      fs.writeFileSync(DEST + lessonPath + '/index.html', html, 'utf8');
-      return {
-        url: lessonPath + '/',
-        title: title,
-        thumbnail: thumbnail,
-        description: description
-      }
-    } else {
-      return false;
-    }
-  }).filter((value) => {
-    return !!value;
-  });
-  return new Promise((resolve, reject) => {
-    fs.writeFile(path + 'all.json', JSON.stringify(files), 'utf8', (err) => {
+  return new Promise( resolve => {
+    fs.readFile(path + 'index.dev.html', 'utf8', (err, content) => {
       if (err) {
-        return reject(err);
+        throw err;
       }
-      resolve();
+      content = content.replace(SRC_REG, toCDN);
+      template = Handlebars.compile(content);
+      resolve(template);
     });
-  });
+  })
+    .then( template => {
+      return Promise.all(files.filter( filename => {
+        return /\.md$/.test(filename);
+      }).map( name => {
+        let filename = path + name;
+        let toFoler = name.slice(0, -3) + '/';
+        let destPath = DEST + path + toFoler;
+        return new Promise( resolve => {
+          mkdirp(destPath, err => {
+            if (err) {
+              throw err;
+            }
+            resolve();
+          })
+        })
+          .then( () => { // 读取头信息
+            return readMeta(filename);
+          })
+          .then( meta => { // 生成 html
+            meta.markdown = name;
+            let html = template(meta);
+            let $ = cheerio(html);
+            cheerio.find('[data-exclude]').remove();
+            cheerio.find('body').append('<script src="../../app/slide.js"></script>');
+            return [meta, name, cheerio.html()];
+          })
+          .then( ([meta, name, html]) => { // 写入 html
+            return new Promise( resolve => {
+              fs.writeFile(destPath + 'index.html', html, 'utf8', err => {
+                if (err) {
+                  throw err;
+                }
+                resolve(meta);
+              });
+            });
+          })
+          .then( meta => { // 复制 markdown
+            meta.url = path + toFoler;
+            return copy(filename, destPath, meta);
+          });
+      })
+    )
+    .then( files => {
+      return new Promise( resolve => {
+        fs.writeFile(path + 'all.json', JSON.stringify(files), 'utf8', (err) => {
+          if (err) {
+            throw err;
+          }
+          resolve();
+        });
+      });
+    });
 });
 
 gulp.task('imagemin', () => {
@@ -143,9 +168,3 @@ gulp.task('default', (taskDone) => {
     taskDone
   );
 });
-
-function toCDN(match, key, js) {
-  js = js.replace(/dist\//, '');
-  js = /.min.js/.test(js) ? js : js.replace(/.js$/, '.min.js');
-  return cdn[key] + js;
-}
