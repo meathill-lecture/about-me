@@ -1,8 +1,8 @@
 {
-  "bootstrap": "//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/",
-  "bootstrap-flex": "//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.5/",
+  "bootstrap": "//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha.6/",
   "jquery": "//cdn.staticfile.org/jquery/3.1.1/",
   "font-awesome": "//cdn.staticfile.org/font-awesome/4.7.0/",
   "marked": "//cdn.staticfile.org/marked/0.3.6/",
-  "reveal.js": "//cdn.staticfile.org/reveal.js/3.3.0/"
+  "reveal.js": "//cdn.staticfile.org/reveal.js/3.4.1/",
+  "highlight.js": "//cdn.staticfile.org/highlight.js/9.9.0/"
 }

@@ -11,7 +11,7 @@ let fs = require('fs')
   , gulp = require('gulp')
   , sequence = require('run-sequence')
   , stylus = require('gulp-stylus')
-  , minifyCSS = require('gulp-minify-css')
+  , cleanCSS = require('gulp-clean-css')
   , minifyHTML = require('html-minifier').minify
   , uglify = require('gulp-uglify')
   , imagemin = require('gulp-imagemin')
@@ -31,7 +31,7 @@ gulp.task('clear', () => {
 gulp.task('stylus', () => {
   return gulp.src('./styl/*.styl')
     .pipe(stylus())
-    .pipe(minifyCSS())
+    .pipe(cleanCSS())
     .pipe(gulp.dest(DEST + 'css/'));
 });
 

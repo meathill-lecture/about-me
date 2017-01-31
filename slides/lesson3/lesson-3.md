@@ -1,5 +1,5 @@
 ### “个人网站”开发实战 第二课
-# Bootstrap
+# Stylus
 
 ### 讲师：翟路佳
 
@@ -13,66 +13,206 @@
 
 ## 本节课程大纲
 
-1. Bootstrap 简介
-2. Bootstrap 为什么流行？
-3. 使用 Bootstrap 进行开发
+1. CSS 预处理工具
+2. Stylus 简介
+3. 使用 Stylus 进行开发
 
 --------
 
-## Bootstrap 简介
-
-Bootstrap 是目前世界上最流行的前端框架。
-
-由 Twitter 两名程序员创立，由开源社区共同维护。
+## CSS 预处理工具
 
 ========
 
-目前经历了4个版本。
+### CSS 本身的问题
 
-本教程将以最新的 4.0.0-alpha.6 为基础。
-
---------
-
-## Bootstrap 为什么流行？
-
-1. 侵入性很低
-2. 文档齐全
-3. 功能丰富
-4. 活跃的社区
+1. 没有变量、没有判断、没有循环、没有函数
+2. 浏览器兼容问题
+3. 缺少合理的组织能力
 
 --------
 
-### 侵入性很低
+解决方案
 
-1. 只依赖 [jQuery](//jquery.com/) 和 [tether](//tether.io/)
-2. 只需要引用 CSS 和 JS
-3. 几乎不影响其它库和组件
+========
 
---------
+### CSS3
 
-### 文档齐全
+1. 变量 `attr()`
+2. 计算属性 `calc()`
+3. 固定函数 `count`
 
-[文档](http://www.lofter.com/login?urschecked=true)
+========
 
-基本涵盖了使用的方方面面
+#### 预处理工具
 
---------
-
-### 功能丰富
-
-1. 提共统一 UI
-2. 补强浏览器不足
-3. 直接面向移动设备，包含响应式
+1. LESS
+2. SASS
+3. **Stylus**<!-- .element: class="red" -->
 
 --------
 
-### 活跃的社区
+## Stylus 简介
 
-1. [官方范例](https://v4-alpha.getbootstrap.com/examples/)
-2. [免费模板](http://bootswatch.com/)
-3. [收费模板](https://wrapbootstrap.com/)
-4. [其它资源](https://expo.getbootstrap.com/resources/)
+[官网](http://stylus-lang.com/) | [在线预览效果](http://stylus-lang.com/try.html)
+
+安装
+
+```bash
+npm install stylus -g
+```
+
+编译 Stylus 为 CSS
+```bash
+stylus source/ -o to/
+```
 
 --------
 
-## 使用 Bootstrap 进行开发
+### 常见用法演示
+
+Stylus
+
+```stylus
+a
+  color #333
+  text-decoration none
+```
+
+CSS
+
+```css
+a {
+  color: #333;
+  text-decoration: none;
+}
+```
+
+========
+
+层级嵌套
+
+Stylus
+
+```stylus
+.lead
+  font-size 1.25em
+
+  a
+    color #F90
+```
+
+CSS
+
+```css
+.lead {
+  font-size: 1.25em;
+}
+.lead a {
+  color: #F90;
+}
+```
+
+========
+
+继承上一级
+
+Stylus
+
+```stylus
+a
+  color #333
+
+  &:hover
+    color #F60
+```
+
+CSS
+
+```css
+a {
+  color: #333;
+}
+a:hover {
+  color: #F60;
+}
+```
+
+========
+
+变量，运算
+
+Stylus
+
+```stylus
+gap = 10px
+
+p
+  margin-bottom gap * 2
+  padding 0 gap
+```
+
+CSS
+
+```css
+p {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+```
+
+========
+
+循环
+
+Stylus
+
+```stylus
+for deg in -5..5
+  .rotate-{deg * 5}
+    transform rotate(deg * 5deg)
+```
+
+CSS
+
+```css
+.rotate--25 {
+  transform: rotate(-25deg);
+}
+.rotate--20 {
+  transform: rotate(-20deg);
+}
+....
+.rotate-25 {
+  transform: rotate(25deg);
+}
+```
+
+========
+
+函数（mixin）
+
+Stylus
+
+```stylus
+border-radius()
+  -webkit-border-radius: arguments
+  -moz-border-radius: arguments
+  border-radius: arguments
+
+a.button
+  border-radius(5px)
+```
+
+CSS
+
+```css
+a.button {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+```
+
+--------
+
+## 使用 Stylus 开发
