@@ -20,7 +20,7 @@ utils.readMeta = function (filename) {
         if (!row) {
           return;
         }
-        row = row.split(/:\s*/);
+        row = row.split(/:\s+/);
         meta[row[0]] = row[1];
       });
 
@@ -31,10 +31,10 @@ utils.readMeta = function (filename) {
     });
 };
 
-utils.toCDN = function toCDN(match, key, js) {
-  js = js.replace(/dist\//, '');
-  js = /.min.js/.test(js) ? js : js.replace(/.js$/, '.min.js');
-  return cdn[key] + js;
+utils.toCDN = function toCDN(match, key, source) {
+  source = source.replace(/dist\//, '');
+  source = /.min.(js|css)$/.test(source) ? source : source.replace(/.(js|css)$/, '.min.js');
+  return cdn[key] + source;
 }
 
 utils.copy = function copy(source, to, options) {
@@ -44,7 +44,11 @@ utils.copy = function copy(source, to, options) {
       throw err;
     });
 
-    let write = fs.createWriteStream(source);
+    if (/\/$/.test(to)) { // 以目录结尾
+      let filename = source.substr(source.lastIndexOf('/') + 1);
+      to += filename;
+    }
+    let write = fs.createWriteStream(to);
     write.on('error', err => {
       throw err;
     });

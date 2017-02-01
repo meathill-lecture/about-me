@@ -5,7 +5,7 @@
 'use strict';
 
 const DEST = 'docs/';
-const SRC_REG = /(?:..\/..\/)?node_modules\/([\w.-]+)\/(.*\.(?:js|css))/g;
+const SRC_REG = /(?:..\/)*node_modules\/([\w.-]+)\/(.*\.(?:js|css))/g;
 
 let fs = require('fs')
   , gulp = require('gulp')
@@ -35,7 +35,7 @@ gulp.task('stylus', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src(['./app/*.js', '!./app/define.js'])
+  return gulp.src(['./app/*.js', '!./app/define.js', '!./app/slide-dev.js'])
     .pipe(replace(SRC_REG, toCDN))
     .pipe(uglify({
       compress: {
@@ -56,6 +56,7 @@ gulp.task('slide2json', () => {
         throw err;
       }
       content = content.replace(SRC_REG, toCDN);
+      content = content.replace(/\.\.\/(js|css)\//g, '../../$1/');
       resolve(Handlebars.compile(content));
     });
   })
