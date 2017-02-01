@@ -1,12 +1,12 @@
 <!--
 title: 第四课：Gulp
-description: 《“个人网站”开发实战》第四课：Gulp。本堂课介绍批处理工具：Gulp。
+description: 《“个人网站”开发实战》第四课：Gulp。本堂课介绍批处理工具 Gulp。它主要通过执行批处理脚本工作，可以帮助我们处理重复性工作，节省大量的时间。利用丰富的插件，可以高效的完成各种各样的工作。可以说，会不会用批处理工具，了解多少批处理工具，决定着开发者效率的高低。
 keywords: gulp
 thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150107_120425909_iOS-768x576.jpg
 -->
 
-### “个人网站”开发实战 第二课
-# Stylus
+### “个人网站”开发实战 第四课
+# Gulp
 
 ### 讲师：翟路佳
 
