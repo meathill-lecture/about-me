@@ -5,7 +5,7 @@ keywords: Stylus
 thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150102_152353504_iOS-768x576.jpg
 -->
 
-### “个人网站”开发实战 第二课
+### “个人网站”开发实战 第三课
 # Stylus
 
 ### 讲师：翟路佳
