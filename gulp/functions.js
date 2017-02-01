@@ -1,5 +1,5 @@
 const fs = require('fs');
-const cdn = require('./cdn.json');
+const cdn = require('../cdn.json');
 
 let utils = module.exports = {};
 
@@ -25,6 +25,9 @@ utils.readMeta = function (filename) {
       });
 
       return meta;
+    })
+    .catch( err => {
+      console.log(err, filename);
     });
 };
 
@@ -37,7 +40,7 @@ utils.toCDN = function toCDN(match, key, js) {
 utils.copy = function copy(source, to, options) {
   return new Promise( resolve => {
     let read = fs.createReadStream(source);
-    source.on('error', err => {
+    read.on('error', err => {
       throw err;
     });
 

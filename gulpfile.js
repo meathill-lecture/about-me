@@ -56,8 +56,7 @@ gulp.task('slide2json', () => {
         throw err;
       }
       content = content.replace(SRC_REG, toCDN);
-      template = Handlebars.compile(content);
-      resolve(template);
+      resolve(Handlebars.compile(content));
     });
   })
     .then( template => {
@@ -81,10 +80,12 @@ gulp.task('slide2json', () => {
           .then( meta => { // 生成 html
             meta.markdown = name;
             let html = template(meta);
-            let $ = cheerio(html);
-            cheerio.find('[data-exclude]').remove();
-            cheerio.find('body').append('<script src="../../app/slide.js"></script>');
-            return [meta, name, cheerio.html()];
+            let $ = cheerio.load(html, {
+              decodeEntities: false
+            });
+            $('[data-exclude]').remove();
+            $('body').append('<script src="../../app/slide.js"></script>');
+            return [meta, name, $.html()];
           })
           .then( ([meta, name, html]) => { // 写入 html
             return new Promise( resolve => {
@@ -100,8 +101,8 @@ gulp.task('slide2json', () => {
             meta.url = path + toFoler;
             return copy(filename, destPath, meta);
           });
-      })
-    )
+      }))
+    })
     .then( files => {
       return new Promise( resolve => {
         fs.writeFile(path + 'all.json', JSON.stringify(files), 'utf8', (err) => {
