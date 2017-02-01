@@ -33,7 +33,7 @@ utils.readMeta = function (filename) {
 
 utils.toCDN = function toCDN(match, key, source) {
   source = source.replace(/dist\//, '');
-  source = /.min.(js|css)$/.test(source) ? source : source.replace(/.(js|css)$/, '.min.js');
+  source = /.min.(js|css)$/.test(source) ? source : source.replace(/.(js|css)$/, '.min.$1');
   return cdn[key] + source;
 }
 

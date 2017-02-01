@@ -18,6 +18,6 @@ if (lesson) {
     });
   $('[data-markdown]').attr('data-markdown', `./lesson${lesson}.md`);
   let script = document.createElement('script');
-  script.src = '../app/slide.js';
+  script.src = '../../app/slide.js';
   document.body.appendChild(script);
 }

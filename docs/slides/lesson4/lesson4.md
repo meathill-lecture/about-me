@@ -14,7 +14,8 @@ thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150107_1204259
 
 | 教程二维码 | 本节课二维码 |
 |----|----|
-| [教程网站](./) | [本节课教案](./) |
+| ![教程网站](../../img/qrcode/home.png) | ![本节课教案](../../img/qrcode/lesson4.png) |
+<!-- .element: class="t-a-c" -->
 
 --------
 

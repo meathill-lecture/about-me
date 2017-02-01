@@ -51,12 +51,11 @@ gulp.task('slide2json', () => {
   let path = 'slides/';
   let files = fs.readdirSync(path, 'utf8');
   return new Promise( resolve => {
-    fs.readFile(path + 'index.dev.html', 'utf8', (err, content) => {
+    fs.readFile(path + 'dev/index.html', 'utf8', (err, content) => {
       if (err) {
         throw err;
       }
       content = content.replace(SRC_REG, toCDN);
-      content = content.replace(/\.\.\/(js|css)\//g, '../../$1/');
       resolve(Handlebars.compile(content));
     });
   })
@@ -117,7 +116,7 @@ gulp.task('slide2json', () => {
 });
 
 gulp.task('imagemin', () => {
-  let avatar = 'img/*';
+  let avatar = 'img/**';
   return gulp.src(avatar)
     .pipe(imagemin({
       progressive: true
