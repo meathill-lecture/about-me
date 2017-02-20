@@ -25,15 +25,86 @@
 </head>
 <body>
 <div class="reveal">
-  <div class="slides">
-    <section data-markdown="lesson8.md" data-separator="--------" data-separator-vertical="========" data-separator-notes="^Note:">
+  <div class="slides"><section><!--
+title: 第八课：网页加载机制
+description: 《“个人网站”开发实战》第八课：网页加载机制。本堂课学习网页加载机制，了解从输入地址到加载完成，浏览器都做了什么。知道这些知识，有助于我们判断如何组织网页文件，如何执行 JS 代码。
+keywords: 网页加载机制
+thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/WP_20130927_001-768x433.jpg
+-->
+<h3 id="-">“个人网站”开发实战 第八课</h3>
+<h1 id="-">网页加载机制</h1>
+<h3 id="-">讲师：翟路佳</h3>
+</section><section><table class="t-a-c">
+<thead>
+<tr>
+<th>教程二维码</th>
+<th>本节课二维码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="../../img/qrcode/home.png" alt="教程网站"></td>
+<td><img src="../../img/qrcode/lesson8.png" alt="本节课教案"></td>
+</tr>
+</tbody>
+</table>
 
-    </section>
-  </div>
+</section><section><h2 id="-">本节课程大纲</h2>
+<ol>
+<li>网页加载机制</li>
+<li>利用此机制制作 Loading</li>
+</ol>
+</section><section><h2 id="-">网页加载机制</h2>
+<p>输入网页地址，按下回车之后，都会发生什么？</p>
+<p><a href="http://meathill-lecture.github.io/about-me/slides/lesson8/">http://meathill-lecture.github.io/about-me/slides/lesson8/</a></p>
+<p><small><em>注：教程重点在 Web 前端开发，所以只讲述有关过程。</em></small></p>
+</section><section><h3 id="-url">解析 URL</h3>
+<p><img src="https://chyingp.gitbooks.io/nodejs/content/assets/url.png" alt="HTTP URL 解析"></p>
+</section><section><h3 id="-dns">请求 DNS</h3>
+<p>域名必须解析成 IP</p>
+<ol>
+<li>减少域名数量</li>
+<li>域名缓存</li>
+<li>加快解析速度</li>
+</ol>
+</section><section><h3 id="-">请求网页资源</h3>
+<p>服务器响应后，开始下载 HTML 网页</p>
+<ol>
+<li>服务器尽快响应</li>
+<li>压缩网页体积</li>
+<li>使用 Gzip</li>
+</ol>
+</section><section><section><h3 id="-">边下载边解析</h3>
+<p>浏览器一边下载 HTML，一边将其解析为 DOM。</p>
+<p>JS 外的资源，会直接开始下载（有上限，域名相关）。</p>
+<p>遇到JS， 会先将其完，再继续解析。</p>
+</section><section><p>对于静态资源</p>
+<ol>
+<li>使用 CDN，使用缓存机制</li>
+<li>使用独立域名</li>
+<li>控制大小，适当合并</li>
+</ol>
+</section><section><p>对于 JS</p>
+<ol>
+<li>操作 DOM 的，要等 DOM 加载完成后再加载</li>
+<li>尽量放在最后，或等网页加载完再执行</li>
+<li>非关键 JS 延后加载</li>
+<li>使用 <code>async</code> 属性</li>
+</ol>
+</section></section><section><h3 id="-">渲染</h3>
+<p>根据 DOM 树渲染</p>
+</section><section><h3 id="-">渲染完成，等待用户操作</h3>
+</section><section><h2 id="-loading-">利用网页加载机制制作 Loading 效果</h2>
+</section><section><h2 id="-">作业</h2>
+<ol>
+<li>参考教程，制作 Loading 效果</li>
+<li>给网站增加访客统计</li>
+</ol>
+</section></div>
 </div>
 
 <script src="//cdn.staticfile.org/reveal.js/3.4.1/lib/js/head.min.js"></script>
-<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.min.js"></script>
+<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.js"></script>
 
 
 <script src="../../app/slide.js"></script></body>

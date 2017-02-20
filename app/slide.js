@@ -9,6 +9,7 @@ Reveal.initialize({
   history: true,
   center: true,
   slideNumber: true,
+  showNotes: true,
 
   theme: Reveal.getQueryHash().theme,
   transition: Reveal.getQueryHash().transition || 'default',

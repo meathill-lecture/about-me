@@ -25,15 +25,174 @@
 </head>
 <body>
 <div class="reveal">
-  <div class="slides">
-    <section data-markdown="lesson3.md" data-separator="--------" data-separator-vertical="========" data-separator-notes="^Note:">
+  <div class="slides"><section><!--
+title: 第三课：Stylus
+description: “个人网站”开发实战》第三课：Stylus。本堂课介绍 CSS 预处理工具：Stylus。CSS 在前端开发中占据非常重要的位置，但是其语言特性又让我们很难进行高效开发。要解决这一难题，需要使用预处理工具。本系列教程选择 Stylus。
+keywords: Stylus
+thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150102_152353504_iOS-768x576.jpg
+-->
+<h3 id="-">“个人网站”开发实战 第三课</h3>
+<h1 id="stylus">Stylus</h1>
+<h3 id="-">讲师：翟路佳</h3>
+</section><section><table class="t-a-c">
+<thead>
+<tr>
+<th>教程二维码</th>
+<th>本节课二维码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="../../img/qrcode/home.png" alt="教程网站"></td>
+<td><img src="../../img/qrcode/lesson3.png" alt="本节课教案"></td>
+</tr>
+</tbody>
+</table>
 
-    </section>
-  </div>
+</section><section><h2 id="-">本节课程大纲</h2>
+<ol>
+<li>CSS 预处理工具</li>
+<li>Stylus 简介</li>
+<li>使用 Stylus 进行开发</li>
+</ol>
+</section><section><section><h2 id="css-">CSS 预处理工具</h2>
+</section><section><h3 id="css-">CSS 本身的问题</h3>
+<ol>
+<li>没有变量、没有判断、没有循环、没有函数</li>
+<li>浏览器兼容问题</li>
+<li>缺少科学的组织方式</li>
+</ol>
+</section></section><section><section><p>解决方案</p>
+</section><section><h3 id="css3">CSS3</h3>
+<ol>
+<li>变量 <code>attr()</code></li>
+<li>计算属性 <code>calc()</code></li>
+<li>固定函数 <code>count</code></li>
+</ol>
+</section><section><h4 id="-">预处理工具</h4>
+<ol>
+<li>LESS</li>
+<li>SASS</li>
+<li><strong class="red">Stylus</strong></li>
+</ol>
+</section></section><section><h2 id="stylus-">Stylus 简介</h2>
+<p><a href="http://stylus-lang.com/">官网</a> | <a href="http://stylus-lang.com/try.html">在线预览效果</a></p>
+<p>安装</p>
+<pre><code class="lang-bash">npm install stylus -g
+</code></pre>
+<p>编译 Stylus 为 CSS</p>
+<pre><code class="lang-bash">stylus source/ -o to/
+</code></pre>
+</section><section><section><h3 id="-">常见用法演示</h3>
+<p>Stylus</p>
+<pre><code class="lang-stylus">a
+  color #333
+  text-decoration none
+</code></pre>
+<p>CSS</p>
+<pre><code class="lang-css">a {
+  color: #333;
+  text-decoration: none;
+}
+</code></pre>
+</section><section><p>层级嵌套</p>
+<p>Stylus</p>
+<pre><code class="lang-stylus">.lead
+  font-size 1.25em
+
+  a
+    color #F90
+</code></pre>
+<p>CSS</p>
+<pre><code class="lang-css">.lead {
+  font-size: 1.25em;
+}
+.lead a {
+  color: #F90;
+}
+</code></pre>
+</section><section><p>继承上一级</p>
+<p>Stylus</p>
+<pre><code class="lang-stylus">a
+  color #333
+
+  &amp;:hover
+    color #F60
+</code></pre>
+<p>CSS</p>
+<pre><code class="lang-css">a {
+  color: #333;
+}
+a:hover {
+  color: #F60;
+}
+</code></pre>
+</section><section><p>变量，运算</p>
+<p>Stylus</p>
+<pre><code class="lang-stylus">gap = 10px
+
+p
+  margin-bottom gap * 2
+  padding 0 gap
+</code></pre>
+<p>CSS</p>
+<pre><code class="lang-css">p {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+</code></pre>
+</section><section><p>循环</p>
+<p>Stylus</p>
+<pre><code class="lang-stylus">for deg in -5..5
+  .rotate-{deg * 5}
+    transform rotate(deg * 5deg)
+</code></pre>
+<p>CSS</p>
+<pre><code class="lang-css">.rotate--25 {
+  transform: rotate(-25deg);
+}
+.rotate--20 {
+  transform: rotate(-20deg);
+}
+....
+.rotate-25 {
+  transform: rotate(25deg);
+}
+</code></pre>
+</section><section><p>函数（mixin）</p>
+<p>Stylus</p>
+<pre><code class="lang-stylus">border-radius()
+  -webkit-border-radius: arguments
+  -moz-border-radius: arguments
+  border-radius: arguments
+
+a.button
+  border-radius(5px)
+</code></pre>
+<p>CSS</p>
+<pre><code class="lang-css">a.button {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+</code></pre>
+</section></section><section><h2 id="-stylus-">使用 Stylus 开发</h2>
+</section><section><h2 id="-">作业</h2>
+<ol>
+<li>参考教程开发 CSS</li>
+<li>阅读 <a href="http://stylus-lang.com/">Stylus 文档</a></li>
+<li>学习开源项目的 CSS 组织方式，如 <a href="https://github.com/twbs/bootstrap/tree/v4-dev/scss">Bootstrap</a></li>
+</ol>
+</section><section><h2 id="-">扩展阅读</h2>
+<ol>
+<li><a href="https://webdesign.tutsplus.com/articles/why-i-choose-stylus-and-you-should-too--webdesign-18412">Why I Choose Stylus (And You Should Too)</a></li>
+<li><a href="http://efe.baidu.com/blog/revisiting-css-preprocessors/">再谈 CSS 预处理器</a></li>
+</ol>
+</section></div>
 </div>
 
 <script src="//cdn.staticfile.org/reveal.js/3.4.1/lib/js/head.min.js"></script>
-<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.min.js"></script>
+<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.js"></script>
 
 
 <script src="../../app/slide.js"></script></body>

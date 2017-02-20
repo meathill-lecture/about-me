@@ -22,7 +22,8 @@
     "html-minifier": "^3.3.0",
     "mkdirp": "^0.5.1",
     "reveal.js": "^3.4.1",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "marked": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

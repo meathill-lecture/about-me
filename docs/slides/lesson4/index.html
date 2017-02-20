@@ -25,15 +25,108 @@
 </head>
 <body>
 <div class="reveal">
-  <div class="slides">
-    <section data-markdown="lesson4.md" data-separator="--------" data-separator-vertical="========" data-separator-notes="^Note:">
+  <div class="slides"><section><!--
+title: 第四课：Gulp
+description: 《“个人网站”开发实战》第四课：Gulp。本堂课介绍批处理工具 Gulp。它主要通过执行批处理脚本工作，可以帮助我们处理重复性工作，节省大量的时间。利用丰富的插件，可以高效的完成各种各样的工作。可以说，会不会用批处理工具，了解多少批处理工具，决定着开发者效率的高低。
+keywords: gulp
+thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150107_120425909_iOS-768x576.jpg
+-->
+<h3 id="-">“个人网站”开发实战 第四课</h3>
+<h1 id="gulp">Gulp</h1>
+<h3 id="-">讲师：翟路佳</h3>
+</section><section><table class="t-a-c">
+<thead>
+<tr>
+<th>教程二维码</th>
+<th>本节课二维码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="../../img/qrcode/home.png" alt="教程网站"></td>
+<td><img src="../../img/qrcode/lesson4.png" alt="本节课教案"></td>
+</tr>
+</tbody>
+</table>
 
-    </section>
-  </div>
+</section><section><h2 id="-">本节课程大纲</h2>
+<ol>
+<li>批处理工具？</li>
+<li>Gulp 简介</li>
+<li>编写 <code>gulpfile.js</code></li>
+</ol>
+</section><section><h2 id="-">批处理工具</h2>
+</section><section><h3 id="-">何为批处理工具</h3>
+<blockquote>
+<p>将一系列命令，按一定顺序执行，即为批处理。</p>
+</blockquote>
+<p>例子：</p>
+<ol>
+<li>*.bat</li>
+<li>Ant</li>
+<li>脚本</li>
+</ol>
+</section><section><h3 id="-">为何要使用批处理工具</h3>
+<ol>
+<li>越来越多的中间代码</li>
+<li>越来越多的设备适配</li>
+<li>其它语言早有成熟经验</li>
+</ol>
+</section><section><h2 id="gulp">Gulp</h2>
+<p><a href="http://gulpjs.com/">官网</a></p>
+<p>安装</p>
+<pre><code class="lang-bash">npm install gulp-cli -g
+npm install gulp --save-dev
+</code></pre>
+<p>帮助</p>
+<pre><code class="lang-bash">gulp --help
+</code></pre>
+</section><section><h2 id="-gulp">为何选用 Gulp</h2>
+<ol>
+<li>使用方便，插件丰富</li>
+<li>配置文件是纯 JS</li>
+<li>运行效率高</li>
+</ol>
+</section><section><p><code>gulpfile.js</code></p>
+<pre><code class="lang-javascript">var gulp = require(&#39;gulp&#39;);
+var pug = require(&#39;gulp-pug&#39;);
+var less = require(&#39;gulp-less&#39;);
+var minifyCSS = require(&#39;gulp-csso&#39;);
+
+gulp.task(&#39;html&#39;, function(){
+  return gulp.src(&#39;client/templates/*.pug&#39;)
+    .pipe(pug())
+    .pipe(gulp.dest(&#39;build/html&#39;))
+});
+
+gulp.task(&#39;css&#39;, function(){
+  return gulp.src(&#39;client/templates/*.less&#39;)
+    .pipe(less())
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(&#39;build/css&#39;))
+});
+
+gulp.task(&#39;default&#39;, [ &#39;html&#39;, &#39;css&#39; ]);
+</code></pre>
+</section><section><p>执行</p>
+<pre><code class="lang-bash">gulp [task]
+</code></pre>
+</section><section><h2 id="-gulpfile-js-">编写 <code>gulpfile.js</code></h2>
+</section><section><h2 id="-">作业</h2>
+<ol>
+<li>参考教程，编写 <code>gulpfile.js</code></li>
+<li>并调试通过</li>
+<li>阅读 <a href="gulpjs.com">Gulp 文档</a></li>
+</ol>
+</section><section><h2 id="-">扩展阅读</h2>
+<ol>
+<li><a href="http://gruntjs.com/">Grunt</a></li>
+</ol>
+</section></div>
 </div>
 
 <script src="//cdn.staticfile.org/reveal.js/3.4.1/lib/js/head.min.js"></script>
-<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.min.js"></script>
+<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.js"></script>
 
 
 <script src="../../app/slide.js"></script></body>

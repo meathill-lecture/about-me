@@ -21,7 +21,7 @@ let fs = require('fs')
   , cheerio = require('cheerio')
   , Handlebars = require('handlebars')
   , mkdirp = require('mkdirp');
-const {copy, readMeta, toCDN} = require('./gulp/functions');
+const {readMeta, toCDN, md2Slides} = require('./gulp/functions');
 
 gulp.task('clear', () => {
   return del(DEST + '*');
@@ -77,13 +77,15 @@ gulp.task('slide2json', () => {
           .then( () => { // 读取头信息
             return readMeta(filename);
           })
-          .then( meta => { // 生成 html
+          .then( ([meta, content]) => { // 生成 html
             meta.markdown = name;
             let html = template(meta);
             let $ = cheerio.load(html, {
               decodeEntities: false
             });
+            let slides = md2Slides(content);
             $('[data-exclude]').remove();
+            $('.slides').html(slides);
             $('body').append('<script src="../../app/slide.js"></script>');
             return [meta, name, $.html()];
           })
@@ -96,10 +98,6 @@ gulp.task('slide2json', () => {
                 resolve(meta);
               });
             });
-          })
-          .then( meta => { // 复制 markdown
-            meta.url = path + toFoler;
-            return copy(filename, destPath, meta);
           });
       }))
     })

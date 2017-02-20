@@ -25,15 +25,84 @@
 </head>
 <body>
 <div class="reveal">
-  <div class="slides">
-    <section data-markdown="lesson6.md" data-separator="--------" data-separator-vertical="========" data-separator-notes="^Note:">
+  <div class="slides"><section><!--
+title: 第六课：更新最近博文
+description: 《“个人网站”开发实战》第六课：更新最近博文。本堂课我们要用学习在 JavaScript 开发中使用模板。前端越来越多地承载业务逻辑，选用合适的模板工具，甚至进行数据双向绑定是必然方向。这回我们先学习使用 Handlebars 进行简单的渲染。
+keywords: git
+thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150605_123237000_iOS-768x576.jpg
+-->
+<h3 id="-">“个人网站”开发实战 第六课</h3>
+<h1 id="-">更新最近博文</h1>
+<h3 id="-">讲师：翟路佳</h3>
+</section><section><table class="t-a-c">
+<thead>
+<tr>
+<th>教程二维码</th>
+<th>本节课二维码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="../../img/qrcode/home.png" alt="教程网站"></td>
+<td><img src="../../img/qrcode/lesson6.png" alt="本节课教案"></td>
+</tr>
+</tbody>
+</table>
 
-    </section>
-  </div>
+</section><section><h2 id="-">本节课程大纲</h2>
+<p>本节课以开发为主，这里简单罗列下用到的语言要素。</p>
+<ol>
+<li>Ajax</li>
+<li>Handlebars</li>
+<li>localStorage</li>
+</ol>
+</section><section><h2 id="ajax">Ajax</h2>
+<p><a href="http://api.jquery.com/jQuery.ajax/"><code>jQuery.ajax()</code></a></p>
+<pre><code class="lang-javascript">jQuery.ajax({
+  url: &#39;http://blog.meathill.com/rss2&#39;,
+  dataType: &#39;xml&#39;,
+  success(response) {
+    // 渲染
+  }
+});
+</code></pre>
+</section><section><h2 id="handlebars">Handlebars</h2>
+<p><a href="http://Handlebarsjs.com/">官方网站</a></p>
+<pre><code class="lang-html">&lt;script id=&quot;entry-template&quot; type=&quot;text/x-handlebars-template&quot;&gt;
+  &lt;div class=&quot;entry&quot;&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;div class=&quot;body&quot;&gt;
+      {{body}}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+</code></pre>
+<pre><code class="lang-javascript">var source = $(&quot;#entry-template&quot;).html();
+var template = Handlebars.compile(source);
+</code></pre>
+</section><section><h2 id="localstorage">localStorage</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">文档</a></p>
+<pre><code class="lang-javascript">// 保存数据
+localStorage.setItem(&quot;username&quot;, &quot;John&quot;);
+
+// 读取数据
+alert( &quot;username = &quot; + localStorage.getItem(&quot;username&quot;));
+</code></pre>
+</section><section><h2 id="-">开发“最新博文”模块</h2>
+</section><section><h2 id="-">作业</h2>
+<ol>
+<li>参考教程，开发“最新博文”模块</li>
+</ol>
+</section><section><h2 id="-">扩展阅读</h2>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">跨域</a></li>
+<li>使用 <a href="https://www.v2ex.com/api/members/show.json?username=meathill">V2EX API</a>，动态加载“我”的信息</li>
+</ol>
+</section></div>
 </div>
 
 <script src="//cdn.staticfile.org/reveal.js/3.4.1/lib/js/head.min.js"></script>
-<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.min.js"></script>
+<script src="//cdn.staticfile.org/reveal.js/3.4.1/js/reveal.js"></script>
 
 
 <script src="../../app/slide.js"></script></body>
