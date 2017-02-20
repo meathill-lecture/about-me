@@ -113,3 +113,17 @@ gulp [task]
 --------
 
 ## 编写 `gulpfile.js`
+
+--------
+
+## 作业
+
+1. 参考教程，编写 `gulpfile.js`
+2. 并调试通过
+3. 阅读 [Gulp 文档](gulpjs.com)
+
+--------
+
+## 扩展阅读
+
+1. [Grunt](http://gruntjs.com/)

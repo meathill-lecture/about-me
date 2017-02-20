@@ -81,4 +81,17 @@ alert( "username = " + localStorage.getItem("username"));
 
 --------
 
-### 开发“最新博文”
+## 开发“最新博文”模块
+
+--------
+
+## 作业
+
+1. 参考教程，开发“最新博文”模块
+
+--------
+
+## 扩展阅读
+
+1. [跨域](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+2. 使用 [V2EX API](https://www.v2ex.com/api/members/show.json?username=meathill)，动态加载“我”的信息

@@ -35,7 +35,7 @@ thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150102_1523535
 
 1. 没有变量、没有判断、没有循环、没有函数
 2. 浏览器兼容问题
-3. 缺少合理的组织能力
+3. 缺少科学的组织方式
 
 --------
 
@@ -224,3 +224,18 @@ a.button {
 --------
 
 ## 使用 Stylus 开发
+
+--------
+
+## 作业
+
+1. 参考教程开发 CSS
+2. 阅读 [Stylus 文档](http://stylus-lang.com/)
+3. 学习开源项目的 CSS 组织方式，如 [Bootstrap](https://github.com/twbs/bootstrap/tree/v4-dev/scss)
+
+--------
+
+## 扩展阅读
+
+1. [Why I Choose Stylus (And You Should Too)](https://webdesign.tutsplus.com/articles/why-i-choose-stylus-and-you-should-too--webdesign-18412)
+2. [再谈 CSS 预处理器](http://efe.baidu.com/blog/revisiting-css-preprocessors/)

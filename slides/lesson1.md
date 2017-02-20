@@ -392,3 +392,21 @@ VSCode
 --------
 
 ## Hello, World
+
+--------
+
+## 作业
+
+请参考前面的教程
+
+1. 下载并安装 IDE
+2. 下载并安装 Node.js
+
+--------
+
+## 扩展阅读
+
+1. [Bootstrap](https://getbootstrap.com)
+2. [caniuse](https://caniuse.com) 浏览器兼容性速查
+3. [CodePen](https://codepen.io) 在线代码编辑预览效果
+4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)

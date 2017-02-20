@@ -96,4 +96,11 @@ thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/WP_20130927_001-
 
 --------
 
-### 开发“最新博文”
+## 使用 Chrome 浏览器调试响应式
+
+--------
+
+## 作业
+
+1. 在 Chrome 下调试响应式
+2. 使用真机（iPhone、Android 手机查看网站）
