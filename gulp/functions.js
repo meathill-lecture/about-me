@@ -3,9 +3,9 @@ const marked = require('marked');
 const cheerio = require('cheerio');
 const cdn = require('../cdn.json');
 
-let utils = module.exports = {};
+const utils = module.exports = {};
 
-utils.readMeta = function (filename) {
+utils.readMeta = function (filename, url) {
   return new Promise( resolve => {
     fs.readFile(filename, 'utf8', (err, content) => {
       if (err) {
@@ -25,6 +25,7 @@ utils.readMeta = function (filename) {
         row = row.split(/:\s+/);
         meta[row[0]] = row[1];
       });
+      meta.url = url;
 
       return [meta, content];
     })
@@ -35,7 +36,7 @@ utils.readMeta = function (filename) {
 
 utils.toCDN = function toCDN(match, key, source) {
   source = source.replace(/dist\//, '');
-  source = /.min.(css)$/.test(source) ? source : source.replace(/.(css)$/, '.min.$1');
+  source = /.min.(js|css)$/.test(source) ? source : source.replace(/.(js|css)$/, '.min.$1');
   return cdn[key] + source;
 };
 
@@ -84,7 +85,7 @@ function createSection(section) {
   }
   section = '<section>' + marked(contents[0]) + note + '</section>';
   section = section.replace(/<!-- \.element: (.*?) -->/gi, '<element $1></element>');
-  $ = cheerio.load(section, {
+  let $ = cheerio.load(section, {
     decodeEntities: false
   });
   $('element').each( function () {
@@ -92,6 +93,9 @@ function createSection(section) {
     let prev = node.prev();
     let attrs = node.attr();
     for (let key in attrs) {
+      if (!attrs.hasOwnProperty(key)) {
+        continue;
+      }
       prev.attr(key, attrs[key]);
     }
   }).remove();

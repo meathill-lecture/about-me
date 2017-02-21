@@ -64,18 +64,18 @@ gulp.task('slide2json', () => {
         return /\.md$/.test(filename);
       }).map( name => {
         let filename = path + name;
-        let toFoler = name.slice(0, -3) + '/';
-        let destPath = DEST + path + toFoler;
+        let toFolder = name.slice(0, -3) + '/';
+        let destPath = DEST + path + toFolder;
         return new Promise( resolve => {
           mkdirp(destPath, err => {
             if (err) {
               throw err;
             }
-            resolve();
+            resolve(path + toFolder);
           })
         })
-          .then( () => { // 读取头信息
-            return readMeta(filename);
+          .then( url => { // 读取头信息
+            return readMeta(filename, url);
           })
           .then( ([meta, content]) => { // 生成 html
             meta.markdown = name;
