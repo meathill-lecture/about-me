@@ -79,11 +79,7 @@ utils.md2Slides = function md2Slides(markdown) {
 
 function createSection(section) {
   let contents = section.split(/^Note:/mgi);
-  let note = '';
-  if (contents.length > 1) {
-    note = '<aside class="notes">' + marked(contents.slice(1).join('\r\r')) + '</aside>';
-  }
-  section = '<section>' + marked(contents[0]) + note + '</section>';
+  section = '<section>' + marked(contents[0]) + '</section>';
   section = section.replace(/<!-- \.element: (.*?) -->/gi, '<element $1></element>');
   let $ = cheerio.load(section, {
     decodeEntities: false

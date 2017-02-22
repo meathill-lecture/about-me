@@ -2,7 +2,7 @@
 title: 第五课：Git
 description: 《“个人网站”开发实战》第五课：Git。本堂课介绍版本管理工具：Git。版本管理是现代软件开发的一个必备技能，学习版本管理可以让我们更容易协同开发，避免版本混乱带来的各种灾难。
 keywords: git
-thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/20150605_123237000_iOS-768x576.jpg
+thumbnail: http://blog.meathill.com/wp-content/uploads/2017/02/IMG_0468-768x576.jpg
 -->
 
 ### “个人网站”开发实战 第五课

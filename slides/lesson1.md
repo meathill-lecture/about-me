@@ -10,6 +10,9 @@ thumbnail: http://qiniu.meathill.com/wp-content/uploads/2016/12/MG_5350-768x512.
 
 ### 讲师：翟路佳
 
+Note:
+大家好，欢迎来到《“个人网站”开发实战》教程。我是讲师翟路佳。
+
 --------
 
 | 教程二维码 | 本节课二维码 |

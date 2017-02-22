@@ -2,7 +2,7 @@
 title: 第八课：网页加载机制
 description: 《“个人网站”开发实战》第八课：网页加载机制。本堂课学习网页加载机制，了解从输入地址到加载完成，浏览器都做了什么。知道这些知识，有助于我们判断如何组织网页文件，如何执行 JS 代码。
 keywords: 网页加载机制
-thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/WP_20130927_001-768x433.jpg
+thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/01/IMG_2397-768x432.jpg
 -->
 
 ### “个人网站”开发实战 第八课

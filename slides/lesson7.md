@@ -2,7 +2,7 @@
 title: 第七课：响应式
 description: 《“个人网站”开发实战》第七课：响应式。本堂课我们学习使用响应式设计，以便让网页在更多的设备上取得理想的显示效果。
 keywords: 响应式,response design
-thumbnail: http://qiniu.meathill.com/wp-content/uploads/2017/02/WP_20130927_001-768x433.jpg
+thumbnail: http://blog.meathill.com/wp-content/uploads/2017/02/microMsg.1417253920512-768x432.jpg
 -->
 
 ### “个人网站”开发实战 第七课
