@@ -24,7 +24,7 @@ Note:
 
 ## 自我介绍
 
-![翟路佳靓照](http://blog.meathill.com/wp-content/uploads/2016/07/20160607_005422423_iOS-825x510.jpg)<!-- .element: height="400" -->
+![翟路佳靓照](http://qiniu.meathill.com/wp-content/uploads/2016/07/20160607_005422423_iOS-825x510.jpg)<!-- .element: height="400" -->
 
 <small><small>2016年4月摄于台湾宜兰</small></small>
 
