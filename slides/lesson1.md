@@ -416,6 +416,12 @@ VSCode
 
 [下载地址](https://nodejs.org/en/)
 
+========
+
+### 3. Chrome 浏览器
+
+[下载地址](https://www.google.com/chrome/browser/desktop/)
+
 --------
 
 ## Hello, World
