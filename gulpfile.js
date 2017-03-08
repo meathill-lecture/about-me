@@ -86,7 +86,7 @@ gulp.task('slide2json', () => {
             let slides = md2Slides(content);
             $('[data-exclude]').remove();
             $('.slides').html(slides);
-            $('body').append('<script src="../../app/slide.js"></script>');
+            $('body').append('<script src="../app/slide.js"></script>');
             return [meta, name, $.html()];
           })
           .then( ([meta, name, html]) => { // 写入 html

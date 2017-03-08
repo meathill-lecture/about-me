@@ -16,26 +16,26 @@ Reveal.initialize({
 
   dependencies: [
     {
-      src: '../../node_modules/marked/marked.min.js',
+      src: '../node_modules/marked/marked.min.js',
       condition: function() {
         return !!document.querySelector('[data-markdown]');
       }
     },
     {
-      src: '../../node_modules/reveal.js/plugin/markdown/markdown.js',
+      src: '../node_modules/reveal.js/plugin/markdown/markdown.js',
       condition: function() {
         return !!document.querySelector('[data-markdown]');
       }
     },
     {
-      src: '../../node_modules/reveal.js/plugin/highlight/highlight.js',
+      src: '../node_modules/reveal.js/plugin/highlight/highlight.js',
       async: true,
       callback: function () {
         hljs.initHighlightingOnLoad();
       }
     },
     {
-      src: '../../node_modules/reveal.js/plugin/notes/notes.js',
+      src: '../node_modules/reveal.js/plugin/notes/notes.js',
       async: true
     }
   ]

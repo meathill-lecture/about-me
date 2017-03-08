@@ -1,7 +1,7 @@
 let lesson = location.search.substr(1);
 
 if (lesson) {
-  $.ajax('../lesson' + lesson + '.md')
+  $.ajax('lesson' + lesson + '.md')
     .then( content => {
       let meta = content.match(/<!--([\s\S]+?)-->/m);
       let array = meta[1].split(/[\r\n]+/);
@@ -16,8 +16,8 @@ if (lesson) {
       $('title').text(meta.title);
       $('[name=description]').attr('content', meta.description);
     });
-  $('[data-markdown]').attr('data-markdown', `../lesson${lesson}.md`);
+  $('[data-markdown]').attr('data-markdown', `lesson${lesson}.md`);
   let script = document.createElement('script');
-  script.src = '../../app/slide.js';
+  script.src = '../app/slide.js';
   document.body.appendChild(script);
 }
