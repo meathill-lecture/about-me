@@ -44,9 +44,9 @@ Note: 正式开讲之前，先做下自我介绍。
 以下是我的联系方式：
 
 <p class="social-links">
-  [<i class="fa fa-weibo"></i>](http://weibo.com/meathill)
-  [<i class="fa fa-github"></i>](https://github.com/meathill)
   [<i class="fa fa-user"></i>](http://blog.meathill.com/)
+  [<i class="fa fa-weibo"></i>](//weibo.com/meathill)
+  [<i class="fa fa-github"></i>](//github.com/meathill)
   [<i class="fa fa-envelope"></i>](mailto:meathill@gmail.com)
 </p>
 
@@ -477,21 +477,21 @@ Note:
 
 VSCode
 
-[官网地址](https://code.visualstudio.com) [下载地址](https://code.visualstudio.com/Download)
+[官网地址](//code.visualstudio.com) [下载地址](//code.visualstudio.com/Download)
 
-<small>其它可选：[Webstorm](https://www.jetbrains.com/webstorm/)</small>
+<small>其它可选：[Webstorm](//www.jetbrains.com/webstorm/)</small>
 
 ========
 
 ### 2. Node.js 环境
 
-[下载地址](https://nodejs.org/en/)
+[下载地址](//nodejs.org/en/)
 
 ========
 
 ### 3. Chrome 浏览器
 
-[下载地址](https://www.google.com/chrome/browser/desktop/)
+[下载地址](//www.google.com/chrome/browser/desktop/)
 
 --------
 
@@ -510,7 +510,7 @@ VSCode
 
 ## 扩展阅读
 
-1. [Bootstrap](https://getbootstrap.com)
-2. [caniuse](https://caniuse.com) 浏览器兼容性速查
-3. [CodePen](https://codepen.io) 在线代码编辑预览效果
+4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)1. [Bootstrap](//getbootstrap.com)
+2. [caniuse](//caniuse.com) 浏览器兼容性速查
+3. [CodePen](//codepen.io) 在线代码编辑预览效果
 4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)

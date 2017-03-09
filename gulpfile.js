@@ -51,7 +51,7 @@ gulp.task('slide2json', () => {
   let path = 'slides/';
   let files = fs.readdirSync(path, 'utf8');
   return new Promise( resolve => {
-    fs.readFile(path + 'dev/index.html', 'utf8', (err, content) => {
+    fs.readFile(path + 'index.html', 'utf8', (err, content) => {
       if (err) {
         throw err;
       }
@@ -90,6 +90,7 @@ gulp.task('slide2json', () => {
             return [meta, name, $.html()];
           })
           .then( ([meta, name, html]) => { // 写入 html
+            html = html.replace(/"\.\.\/(?!\.)/g, '"../../');
             return new Promise( resolve => {
               fs.writeFile(destPath + 'index.html', html, 'utf8', err => {
                 if (err) {
