@@ -193,7 +193,7 @@ _（复述本页）_
 前端招聘市场是火热的。
 
 ![脉脉的招聘推荐](http://blog.meathill.com/wp-content/uploads/2016/12/momo.jpg)
-<!-- .element: class="mh400" --> 
+<!-- .element: class="mh400" -->
 
 Note:
 就拿招聘来说吧，前端市场是火热的。
@@ -414,7 +414,7 @@ Note:
     1. Sass
     2. Less
     3. <strong class="red">Stylus</strong>
-    
+
 Note:
 HTML 方面可以用模板引擎来解决。CSS 则可以引入预处理工具。
 
@@ -530,12 +530,13 @@ Note:
 
 1. 下载并安装 IDE
 2. 下载并安装 Node.js
+3. 下载并安装 Chrome 浏览器
 
 --------
 
 ## 扩展阅读
 
-4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)1. [Bootstrap](//getbootstrap.com)
+1. [Bootstrap](//getbootstrap.com)
 2. [caniuse](//caniuse.com) 浏览器兼容性速查
 3. [CodePen](//codepen.io) 在线代码编辑预览效果
 4. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
